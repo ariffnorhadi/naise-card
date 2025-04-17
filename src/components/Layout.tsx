@@ -1,48 +1,47 @@
-import { ReactNode } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { ReactNode } from "react";
+import { Link, NavLink } from "react-router";
 
 interface LayoutProps {
   children: ReactNode;
 }
 
 export function Layout({ children }: LayoutProps) {
-  const location = useLocation();
-
-  const isActive = (path: string) => {
-    return location.pathname === path;
-  };
-
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
-      <nav className="bg-white shadow-sm">
+    // <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div className="min-h-screen bg-primary">
+      <nav className="bg-primary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Link to="/" className="text-xl font-bold text-gray-800">
-                React Learning
+                Woohoo <span className="text-secondary">🎉</span>
               </Link>
             </div>
             <div className="flex items-center space-x-4">
-              <Link
+              <NavLink
                 to="/"
-                className={`px-4 py-2 text-sm font-medium rounded-md ${
-                  isActive('/')
-                    ? 'bg-blue-500 text-white'
-                    : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
-                }`}
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "text-gray-700"
+                    : isActive
+                    ? "text-secondary font-bold"
+                    : "text-gray-700"
+                }
               >
                 Home
-              </Link>
-              <Link
+              </NavLink>
+              <NavLink
                 to="/gift-cards"
-                className={`px-4 py-2 text-sm font-medium rounded-md ${
-                  isActive('/gift-cards')
-                    ? 'bg-blue-500 text-white'
-                    : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
-                }`}
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "text-gray-700"
+                    : isActive
+                    ? "text-secondary font-bold"
+                    : "text-gray-700"
+                }
               >
                 Gift Cards
-              </Link>
+              </NavLink>
             </div>
           </div>
         </div>
@@ -61,4 +60,4 @@ export function Layout({ children }: LayoutProps) {
       </footer>
     </div>
   );
-} 
+}
