@@ -14,6 +14,7 @@ import uberEatsImage from "../assets/images/uber-eats.jpg";
 import playstationPlusImage from "../assets/images/playstation-plus.jpg";
 import airbnbImage from "../assets/images/airbnb.jpg";
 import netflixImage from "../assets/images/netflix.jpg";
+import promotionalImage from "../assets/images/promotional.jpg";
 interface GiftCard {
   id: number;
   name: string;
@@ -151,7 +152,37 @@ export function GiftCardPage() {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <div className="flex gap-2">
+        <div className="overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-50">
+          {/* Left Side - Text Content */}
+          <div className="flex flex-col justify-between">
+            <h2 className="text-6xl font-bold mb-4">4% Extra Savings</h2>
+            <p className="text-xl mb-6">
+              Get exclusive discounts on all your favorite brands. Limited time offer!
+            </p>
+            <p className="text-sm opacity-80">
+              *Terms and conditions apply. Minimum purchase required. Valid until December 31, 2024.
+            </p>
+            <div className="mt-8">
+              <a href="https://www.naise.com" className="text-secondary">
+                Learn More
+              </a>
+            </div>
+          </div>
+
+          {/* Right Side - Image */}
+          <div className="relative h-[400px] md:h-[300px] w-[300px] md:w-full">
+            <img
+              src={promotionalImage}
+              alt="Promotional Offer"
+              className="w-full h-full object-cover rounded-lg"
+            />
+            <div className="absolute inset-0 rounded-lg"></div>
+          </div>
+        </div>
+      </div>
+
+      <div className="flex flex-wrap gap-2 mt-16">
         {categories.map((category) => (
           <CategoryButton
             key={category}
@@ -217,8 +248,40 @@ export function GiftCardPage() {
         <ButtonLink to="/">View All</ButtonLink>
       </div>
 
+      {/* New Promotional Section with Wider Image */}
+      <div className="mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          {/* Left Side - Text Content */}
+          <div className="rounded-2xl bg-tertiary p-8 flex flex-col justify-between">
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Special Offer</h2>
+              <p className="text-lg mb-6">
+                Exclusive deals just for you.<br></br> Don't miss out on these amazing savings!
+              </p>
+            </div>
+            <div className="mt-8">
+              <a href="https://www.naise.com" className="text-black hover:text-black/80">
+                Discover More →
+              </a>
+            </div>
+          </div>
+
+          {/* Right Side - Wider Image */}
+          <div className="md:col-span-2">
+            <div className="relative h-[400px] md:h-[400px] rounded-2xl overflow-hidden">
+              <img
+                src={promotionalImage}
+                alt="Special Offer"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Fashionably Yours Section */}
-      <h3 className="text-4xl font-bold mt-6">Fashionably Yours</h3>
+      <h3 className="text-4xl font-bold mt-16">Fashionably Yours</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
         {fashionGiftCards.map((card) => (
           <div key={card.id} className="rounded-lg overflow-hidden">
@@ -237,6 +300,38 @@ export function GiftCardPage() {
             </div>
           </div>
         ))}
+      </div>
+
+         {/* New Promotional Section with Wider Image */}
+         <div className="mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+          {/* Left Side - Text Content */}
+          <div className="rounded-2xl bg-tertiary p-8 flex flex-col justify-between">
+            <div>
+              <h2 className="text-2xl font-bold mb-4">Special Offer</h2>
+              <p className="text-lg mb-6">
+                Exclusive deals just for you.<br></br> Don't miss out on these amazing savings!
+              </p>
+            </div>
+            <div className="mt-8">
+              <a href="https://www.naise.com" className="text-black hover:text-black/80">
+                Discover More →
+              </a>
+            </div>
+          </div>
+
+          {/* Right Side - Wider Image */}
+          <div className="md:col-span-2">
+            <div className="relative h-[400px] md:h-[400px] rounded-2xl overflow-hidden">
+              <img
+                src={promotionalImage}
+                alt="Special Offer"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
