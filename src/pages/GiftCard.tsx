@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { CategoryButton } from "../components/CategoryButton";
 import { ButtonLink } from "../components/ButtonLink";
+import { FAQSection } from "../components/FAQSection";
 
 import amazonImage from "../assets/images/amazon.jpg";
 import spotifyImage from "../assets/images/spotify.jpg";
@@ -149,6 +150,29 @@ export function GiftCardPage() {
   ];
 
   const categories = ["Food", "Shopping", "Entertainment", "Fashion", "Jewelry", "Health", "Beauty", "Other"];
+
+  const faqs = [
+    {
+      question: "How do I purchase a gift card?",
+      answer: "You can purchase gift cards directly from our website. Simply select the amount, choose your design, and complete the checkout process. The gift card will be delivered to your email instantly."
+    },
+    {
+      question: "Can I use multiple gift cards for one purchase?",
+      answer: "Yes, you can combine multiple gift cards for a single purchase. During checkout, you'll have the option to apply multiple gift card codes."
+    },
+    {
+      question: "Do gift cards expire?",
+      answer: "Our gift cards do not expire. You can use them at any time for your purchases."
+    },
+    {
+      question: "Can I get a refund for my gift card?",
+      answer: "Gift cards are non-refundable and cannot be exchanged for cash. Please make sure to review your purchase before completing the transaction."
+    },
+    {
+      question: "How do I check my gift card balance?",
+      answer: "You can check your gift card balance by logging into your account and viewing your gift card details, or by contacting our customer support team."
+    }
+  ];
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -333,6 +357,12 @@ export function GiftCardPage() {
           </div>
         </div>
       </div>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        title="Gifting is just more than just act of giving or receiving something. It's about the thought, the intention, and the connection between the giver and the receiver."
+        faqs={faqs}
+      />
     </div>
   );
 }
