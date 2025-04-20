@@ -149,43 +149,59 @@ export function GiftCardPage() {
     },
   ];
 
-  const categories = ["Food", "Shopping", "Entertainment", "Fashion", "Jewelry", "Health", "Beauty", "Other"];
+  const categories = [
+    "Food",
+    "Shopping",
+    "Entertainment",
+    "Fashion",
+    "Jewelry",
+    "Health",
+    "Beauty",
+    "Other",
+  ];
 
   const faqs = [
     {
       question: "How do I purchase a gift card?",
-      answer: "You can purchase gift cards directly from our website. Simply select the amount, choose your design, and complete the checkout process. The gift card will be delivered to your email instantly."
+      answer:
+        "You can purchase gift cards directly from our website. Simply select the amount, choose your design, and complete the checkout process. The gift card will be delivered to your email instantly.",
     },
     {
       question: "Can I use multiple gift cards for one purchase?",
-      answer: "Yes, you can combine multiple gift cards for a single purchase. During checkout, you'll have the option to apply multiple gift card codes."
+      answer:
+        "Yes, you can combine multiple gift cards for a single purchase. During checkout, you'll have the option to apply multiple gift card codes.",
     },
     {
       question: "Do gift cards expire?",
-      answer: "Our gift cards do not expire. You can use them at any time for your purchases."
+      answer:
+        "Our gift cards do not expire. You can use them at any time for your purchases.",
     },
     {
       question: "Can I get a refund for my gift card?",
-      answer: "Gift cards are non-refundable and cannot be exchanged for cash. Please make sure to review your purchase before completing the transaction."
+      answer:
+        "Gift cards are non-refundable and cannot be exchanged for cash. Please make sure to review your purchase before completing the transaction.",
     },
     {
       question: "How do I check my gift card balance?",
-      answer: "You can check your gift card balance by logging into your account and viewing your gift card details, or by contacting our customer support team."
-    }
+      answer:
+        "You can check your gift card balance by logging into your account and viewing your gift card details, or by contacting our customer support team.",
+    },
   ];
 
   return (
     <div className="container mx-auto px-4 py-8">
-        <div className="overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-50">
+      <div className="overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 md:gap-50 gap-10">
           {/* Left Side - Text Content */}
-          <div className="flex flex-col justify-between">
+          <div className="flex flex-col justify-start">
             <h2 className="text-6xl font-bold mb-4">4% Extra Savings</h2>
             <p className="text-xl mb-6">
-              Get exclusive discounts on all your favorite brands. Limited time offer!
+              Get exclusive discounts on all your favorite brands. Limited time
+              offer!
             </p>
             <p className="text-sm opacity-80">
-              *Terms and conditions apply. Minimum purchase required. Valid until December 31, 2024.
+              *Terms and conditions apply. Minimum purchase required. Valid
+              until December 31, 2024.
             </p>
             <div className="mt-8">
               <a href="https://www.naise.com" className="text-secondary">
@@ -195,7 +211,7 @@ export function GiftCardPage() {
           </div>
 
           {/* Right Side - Image */}
-          <div className="relative h-[400px] md:h-[300px] w-[300px] md:w-full">
+          <div className="relative h-[200px] md:h-[300px] rounded-2xl overflow-hidden">
             <img
               src={promotionalImage}
               alt="Promotional Offer"
@@ -206,7 +222,7 @@ export function GiftCardPage() {
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-2 mt-16">
+      <div className="flex gap-2 mt-15 md:mt-16 overflow-x-auto">
         {categories.map((category) => (
           <CategoryButton
             key={category}
@@ -267,7 +283,7 @@ export function GiftCardPage() {
           </div>
         ))}
       </div>
-      
+
       <div className="flex justify-center mt-12">
         <ButtonLink to="/">View All</ButtonLink>
       </div>
@@ -280,11 +296,15 @@ export function GiftCardPage() {
             <div>
               <h2 className="text-2xl font-bold mb-4">Special Offer</h2>
               <p className="text-lg mb-6">
-                Exclusive deals just for you.<br></br> Don't miss out on these amazing savings!
+                Exclusive deals just for you.<br></br> Don't miss out on these
+                amazing savings!
               </p>
             </div>
             <div className="mt-8">
-              <a href="https://www.naise.com" className="text-black hover:text-black/80">
+              <a
+                href="https://www.naise.com"
+                className="text-black hover:text-black/80"
+              >
                 Discover More →
               </a>
             </div>
@@ -298,7 +318,7 @@ export function GiftCardPage() {
                 alt="Special Offer"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              <div className="absolute inset-0"></div>
             </div>
           </div>
         </div>
@@ -326,19 +346,23 @@ export function GiftCardPage() {
         ))}
       </div>
 
-         {/* New Promotional Section with Wider Image */}
-         <div className="mt-16">
+      {/* New Promotional Section with Wider Image */}
+      <div className="mt-16">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
           {/* Left Side - Text Content */}
           <div className="rounded-2xl bg-tertiary p-8 flex flex-col justify-between">
             <div>
               <h2 className="text-2xl font-bold mb-4">Special Offer</h2>
               <p className="text-lg mb-6">
-                Exclusive deals just for you.<br></br> Don't miss out on these amazing savings!
+                Exclusive deals just for you.<br></br> Don't miss out on these
+                amazing savings!
               </p>
             </div>
             <div className="mt-8">
-              <a href="https://www.naise.com" className="text-black hover:text-black/80">
+              <a
+                href="https://www.naise.com"
+                className="text-black hover:text-black/80"
+              >
                 Discover More →
               </a>
             </div>
@@ -352,14 +376,14 @@ export function GiftCardPage() {
                 alt="Special Offer"
                 className="w-full h-full object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
+              <div className="absolute inset-0"></div>
             </div>
           </div>
         </div>
       </div>
 
       {/* FAQ Section */}
-      <FAQSection 
+      <FAQSection
         title="Gifting is just more than just act of giving or receiving something. It's about the thought, the intention, and the connection between the giver and the receiver."
         faqs={faqs}
       />
