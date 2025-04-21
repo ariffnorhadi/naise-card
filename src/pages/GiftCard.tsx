@@ -386,6 +386,8 @@ export function GiftCardPage() {
       <FAQSection
         title="Gifting is just more than just act of giving or receiving something. It's about the thought, the intention, and the connection between the giver and the receiver."
         faqs={faqs}
+        lastOpenedIndex={-1}
+        isOpen={false}
       />
     </div>
   );
