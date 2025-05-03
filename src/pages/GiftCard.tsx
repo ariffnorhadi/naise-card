@@ -2,6 +2,8 @@ import { useState } from "react";
 import { CategoryButton } from "../components/CategoryButton";
 import { ButtonLink } from "../components/ButtonLink";
 import { FAQSection } from "../components/FAQSection";
+import { GiftCardItem } from "../components/GiftCardItem";
+import { SearchBar } from "../components/SearchBar";
 
 import amazonImage from "../assets/images/amazon.jpg";
 import spotifyImage from "../assets/images/spotify.jpg";
@@ -16,6 +18,7 @@ import playstationPlusImage from "../assets/images/playstation-plus.jpg";
 import airbnbImage from "../assets/images/airbnb.jpg";
 import netflixImage from "../assets/images/netflix.jpg";
 import promotionalImage from "../assets/images/promotional.jpg";
+
 interface GiftCard {
   id: number;
   name: string;
@@ -28,6 +31,7 @@ interface GiftCard {
 
 export function GiftCardPage() {
   const [activeCategory, setActiveCategory] = useState<string>("Food");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   // Mock data for main section
   const mainGiftCards: GiftCard[] = [
@@ -188,6 +192,11 @@ export function GiftCardPage() {
     },
   ];
 
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    // You can implement search filtering logic here
+  };
+
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="overflow-hidden">
@@ -222,6 +231,14 @@ export function GiftCardPage() {
         </div>
       </div>
 
+      {/* Search Bar */}
+      <div className="mt-8 mb-6">
+        <SearchBar 
+          placeholder="Search gift cards..." 
+          onSearch={handleSearch}
+        />
+      </div>
+
       <div className="flex gap-2 mt-15 md:mt-16 overflow-x-auto">
         {categories.map((category) => (
           <CategoryButton
@@ -236,23 +253,14 @@ export function GiftCardPage() {
       {/* Main Gift Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
         {mainGiftCards.map((card) => (
-          <div key={card.id} className="rounded-lg overflow-hidden">
-            <div className="relative bg-white">
-              <img
-                src={card.image}
-                alt={card.name}
-                className="w-full h-40 object-cover"
-              />
-            </div>
-
-            <div className="pt-2">
-              <h2 className="text-xs font-semibold text-gray-800">
-                {card.name}
-              </h2>
-
-              <p className="text-secondary font-medium">{card.discount}% Off</p>
-            </div>
-          </div>
+          <GiftCardItem
+            key={card.id}
+            {...card}
+            onClick={() => {
+              // Handle card click
+              console.log('Selected card:', card);
+            }}
+          />
         ))}
       </div>
 
@@ -264,23 +272,14 @@ export function GiftCardPage() {
       <h3 className="text-4xl font-bold mt-6">Deals of The Week</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
         {dealsOfTheWeek.map((card) => (
-          <div key={card.id} className="rounded-lg overflow-hidden">
-            <div className="relative bg-white">
-              <img
-                src={card.image}
-                alt={card.name}
-                className="w-full h-40 object-cover"
-              />
-            </div>
-
-            <div className="pt-2">
-              <h2 className="text-xs font-semibold text-gray-800">
-                {card.name}
-              </h2>
-
-              <p className="text-secondary font-medium">{card.discount}% Off</p>
-            </div>
-          </div>
+          <GiftCardItem
+            key={card.id}
+            {...card}
+            onClick={() => {
+              // Handle card click
+              console.log('Selected card:', card);
+            }}
+          />
         ))}
       </div>
 
@@ -328,21 +327,14 @@ export function GiftCardPage() {
       <h3 className="text-4xl font-bold mt-16">Fashionably Yours</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6">
         {fashionGiftCards.map((card) => (
-          <div key={card.id} className="rounded-lg overflow-hidden">
-            <div className="relative bg-white">
-              <img
-                src={card.image}
-                alt={card.name}
-                className="w-full h-100 object-cover"
-              />
-            </div>
-            <div className="pt-2">
-              <h2 className="text-xs font-semibold text-gray-800">
-                {card.name}
-              </h2>
-              <p className="text-secondary font-medium">{card.discount}% Off</p>
-            </div>
-          </div>
+          <GiftCardItem
+            key={card.id}
+            {...card}
+            onClick={() => {
+              // Handle card click
+              console.log('Selected card:', card);
+            }}
+          />
         ))}
       </div>
 

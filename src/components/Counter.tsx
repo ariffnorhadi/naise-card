@@ -3,15 +3,30 @@ import { useState } from 'react';
 interface CounterProps {
   initialCount?: number;
   title?: string;
+  onCountChange?: (count: number) => void;
 }
 
-export function Counter({ initialCount = 0, title = 'Counter' }: CounterProps) {
+export function Counter({ initialCount = 0, title = 'Counter', onCountChange }: CounterProps) {
   const [count, setCount] = useState(initialCount);
   const [step, setStep] = useState(1);
 
-  const increment = () => setCount(count + step);
-  const decrement = () => setCount(count - step);
-  const reset = () => setCount(initialCount);
+  const increment = () => {
+    const newCount = count + step;
+    setCount(newCount);
+    onCountChange?.(newCount);
+  };
+  
+  const decrement = () => {
+    const newCount = count - step;
+    setCount(newCount);
+    onCountChange?.(newCount);
+  };
+  
+  const reset = () => {
+    setCount(initialCount);
+    onCountChange?.(initialCount);
+  };
+  
   const handleStepChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setStep(Number(e.target.value));
   };
